@@ -1,0 +1,10 @@
+oilwater\mbfuncholding.o: ..\Middlewate\Modbus\modbus\functions\mbfuncholding.c
+oilwater\mbfuncholding.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+oilwater\mbfuncholding.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+oilwater\mbfuncholding.o: ..\Middlewate\Modbus\port\port.h
+oilwater\mbfuncholding.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h
+oilwater\mbfuncholding.o: ..\Middlewate\Modbus\modbus\include\mb.h
+oilwater\mbfuncholding.o: ..\Middlewate\Modbus\modbus\include\mbport.h
+oilwater\mbfuncholding.o: ..\Middlewate\Modbus\modbus\include\mbproto.h
+oilwater\mbfuncholding.o: ..\Middlewate\Modbus\modbus\include\mbframe.h
+oilwater\mbfuncholding.o: ..\Middlewate\Modbus\modbus\include\mbconfig.h
