@@ -115,8 +115,14 @@ static void updateRegInputCB()
 			adc_value = adc_value + ADC_Value[size * 8 + i - 8];
 		}
 		
+		if(i == 15) {
+			usRegHoldingBuf[i] = (-40 + 186.20 * (adc_value * 3.3 / 4096) / 100.0) * 100;
+			continue;
+		}
+		
 		usRegHoldingBuf[i] = (adc_value * 3.3 / 4096)* 3.0769;
 	}
+
 	//0->开关量， 1->电压， 2->电流 3->
 	for(i = index; i < 16; i++)
 	{
@@ -159,6 +165,8 @@ void portConfig(void )
 	int index = 0;
 	
 	usRegHoldingBuf[45] = 2;
+	//usRegHoldingBuf[46] = 1;
+	usRegHoldingBuf[47] = 1;
 	
 	for(int i = 40; i < 48; i++)
 	{
@@ -182,6 +190,10 @@ void PLATFORM_Init(void )
 	
 	portConfig();   //根据配置文件初始化采集类型
 	HAL_ADC_Start_DMA(&hadc1, (uint32_t *)&ADC_Value, 800);
+	
+	//set port 35 = 1000
+	usRegHoldingBuf[35] = 1000; 
+	updateRegHoldingCB();
 }
 
 void uartPoll(void)
